@@ -1,0 +1,20 @@
+<div class="flex flex-center justify-center items-center h-screen w-screen">
+  <div class="col-6 bg-gradient-to-r from-black to-blue-950  rounded p-10 m-2" aria-live="polite">
+    <p class="text-white font-bold text-lg text-left ml-2">Admin Login</p>
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="form-widget mt-2">
+    <div>
+      <label for="email" class="hidden">Email</label>
+      <input id="email" formControlName="email" class="m-2 rounded p-2 outline-white focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 bg-black text-white font-semibold" type="email" placeholder="Your email or username"/>
+    </div>
+    <div>
+      <label for="password" class="hidden">Password</label>
+      <input id="password" formControlName="password" class="m-2 rounded p-2  outline-white focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 bg-black text-white font-semibold" type="password" placeholder="Your password"/>
+    </div>
+    <div class="flex flex-center justify-center mt-10 -mb-6">
+      <button type="submit" class="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded w-full m-2 text-white font-bold hover:text-black hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:scale-125 transition delay-75 duration-100 ease-in-out" [disabled]="loading">
+        {{ loading ? 'Loading' : 'Sing in' }}
+      </button>
+    </div>
+  </form>
+</div>
+</div>

@@ -1,0 +1,42 @@
+<section class="flex flex-col items-center mb-2 ">
+  <h1 class="text-2xl mb-6 sm:text-6xl md:text-7xl font-bold lg:text-8xl dark:text-gray-100 mt-10">Estudios Acreditados</h1>
+  <div class="text-center mb-3 ">
+    <app-button *ngIf="!botonPresionado" class="bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      (clickEvent)="openDialog()" ><i class="fas fa-plus-circle mr-1"></i>Agregar Estudio</app-button>
+  </div>
+</section>
+
+
+  <!-- Formulario en dialog para crear el estudio -->
+
+    <dialog [open]="isOpen()" class="relative bg-gray-200 shadow-lg shadow-blue-300 rounded-xl p-2  dark:shadow-gray-500 dark:shadow-lg font-semibold mb-5 px-20 dark:text-gray-100 dark:bg-slate-900">
+      <p class="font-bold mt-1 mb-3 text-center md:text-2xl">Agregar un nuevo estudio</p>
+      <app-form [item]="estudioForm.value" [formGroup]="estudioForm" (save)="postEstudio(estudioForm.value)" (close)="closeDialog()" [showButtons]="true"></app-form>
+    </dialog>
+
+
+<div class="grid  grid-flow-row lg:max-w-6xl lg:grid-cols-2 gap-4 justify-center mb-44  ">
+  <ng-container *ngFor="let estudio of $dataEstudios | async ">
+    <section class="mx-2 mt-3 text-black font-semibold  bg-gray-200 shadow-lg shadow-blue-300 rounded-xl p-2  dark:shadow-gray-500 dark:shadow-lg dark:bg-slate-900 dark:text-gray-100 ">
+      <ul>
+        <li class="p-2 overflow-auto h-44">
+          <p class="mb-3">{{ estudio.estudio }}</p>
+          <img [src]="estudio.imagen" alt="estudio de {{ estudio.estudio }}"
+            class="w-full h-full sm:h-auto sm:w-auto mx-auto">
+        </li>
+      </ul>
+      <!-- Actions (botones) para editar, borrar o cancelar edicion en el estudio -->
+      <app-actions [isEditing]="editingStates[estudio.id]" (delete)="deleteEstudio(estudio.id)"
+        (toggleEdit)="onToggleEditMode(estudio.id)"
+        (save)="patchEstudio(estudio.id, editingEstudioForm.value)"></app-actions>
+
+      <!-- Formulario para editar el estudio -->
+      <ng-container *ngIf="editingStates[estudio.id]">
+        <app-form [item]="estudio" [formGroup]="editingEstudioForm"
+          (save)="patchEstudio(estudio.id,  estudio)"></app-form>
+      </ng-container>
+
+
+    </section>
+  </ng-container>
+</div>

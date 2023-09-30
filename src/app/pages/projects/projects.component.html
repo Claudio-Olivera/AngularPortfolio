@@ -1,0 +1,25 @@
+<h2
+class="text-center text-4xl mt-5 p-5 w-fit mx-auto font-bold  bg-clip-text text-transparent bg-gradient-to-b from-blue-400 to-purple-500 "><!--  bg-gray-200 shadow-xl dark:text-gray-100 dark:bg-slate-900  dark:shadow-slate-400 dark:shadow-md -->
+Proyectos realizados</h2>
+  <section *ngFor="let proyecto of $dataProyectos | async">
+  <article class="mb-20 dark:text-gray-100">
+    <div class="md:items-start md:mx-auto md:max-w-4xl">
+      <h3 class="text-blue-500 font-semibold  text-3xl mt-10 mb-10 sm:text-left sm:m-5 text-left m-5 md:text-left md:m-5">
+        {{proyecto.nombre}}
+      </h3>
+      <div class="flex flex-col items-center mx-4">
+        <p class=" max-w-4xl text-2xl mb-10 font-Ubuntu">
+         {{proyecto.descripcion}}
+        </p>
+        <p class="text-lg font-Oswald">
+          Puedes acceder a ella haciendo click en la imágen.
+        </p>
+      </div>
+      <a class="flex justify-center cursor-pointer" [href]=proyecto.link target='blank'>
+        <img class="rounded w-full xl:w-2/4 mx-auto max-w-4xl shadow-2xl shadow-gray-400 hover:transition-all duration-300 ease-in-out hover:w-3/4" [src]="proyecto.imagen" alt="{{proyecto.nombre}} image" />
+      </a>
+    </div>
+  </article>
+</section>
+
+

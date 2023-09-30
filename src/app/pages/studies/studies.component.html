@@ -1,0 +1,11 @@
+<section>
+  <app-accredited-studies></app-accredited-studies>
+
+  <div class="flex justify-center">
+    <button class="mt-5  text-center border border-solid text-xl font-semibold text-white rounded-md bg-gradient-to-r from-blue-400 to-purple-500 hover:from-purple-500 hover:to-blue-500 hover:scale-125 transition delay-150 duration-300 ease-in-out cursor-pointer shadow-2xl p-2 mb-5" (click)="toggleCertificaciones()">
+     Ver otras certificaciones <i class="fa-solid fa-angle-down "></i></button>
+  </div>
+  <section *ngIf="showCertificaciones">
+   <router-outlet></router-outlet>
+  </section>
+</section>

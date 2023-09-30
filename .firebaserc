@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portfolio-claudio-olivera": {
+      "hosting": {
+        "Claudio-Olivera-Portfolio": [
+          "portfolio-claudio-olivera"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "portfolio-claudio-olivera"
+  }
+}

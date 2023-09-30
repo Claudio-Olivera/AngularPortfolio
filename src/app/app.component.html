@@ -1,0 +1,23 @@
+
+<main [ngClass]="{
+  'grid grid-flow-row mt-15 lg:grid-flow-row lg:items-center lg:justify-center': currentUrl == '/acerca',
+  'grid grid-flow-row mt-15 lg:grid-flow-row lg:items-center lg:justify-center ': currentUrl != '/acerca',
+  'lg:mt-0 bg-zinc-950': currentUrl == '/auth'
+}">
+
+  <ng-container *ngIf="currentUrl == '/estudios' || currentUrl == '/proyectos' " >
+    <div class="md:flex md:aling-items-center md:justify-center xs:flex-col mr-5">
+      <app-nav></app-nav>
+      <div class="md:flex md:aling-items-center  ">
+        <app-social-nav class="ml-5 my-14"></app-social-nav>
+      </div>
+    </div>
+  </ng-container>
+  <app-dark-mode-button *ngIf=" currentUrl == '/estudios' || currentUrl == '/proyectos'"></app-dark-mode-button><!--*ngIf="currentUrl == '/estudios' || currentUrl == '/proyectos'"  -->
+  <router-outlet></router-outlet>
+
+</main>
+
+
+
+

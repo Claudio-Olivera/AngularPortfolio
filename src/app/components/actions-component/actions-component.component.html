@@ -1,0 +1,13 @@
+<section class="flex justify-around  mt-4 p-8 ">
+  <app-button (clickEvent)="onDelete()">
+    <i class="fas fa-trash-alt text-red-600 text-2xl" title="Eliminar"></i>
+  </app-button>
+
+  <app-button (clickEvent)="onToggleEdit()">
+    <i [ngClass]="isEditing ? 'fas fa-times text-2xl text-black dark:text-gray-100 ' : 'fas fa-edit text-2xl text-blue-500'" [title]="isEditing ? 'Cancelar' : 'Editar entrada'"></i>
+  </app-button>
+
+  <app-button (clickEvent)="onSave(item)" *ngIf="isEditing">
+    <i class="fas fa-save text-green-500 text-2xl" title="Guardar"></i>
+  </app-button>
+</section>

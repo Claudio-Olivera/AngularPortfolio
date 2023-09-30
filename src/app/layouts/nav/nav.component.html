@@ -1,0 +1,13 @@
+<nav [ngClass]="currentUrl !== '/acerca'? 'grid align-items-center justify-center -ml-7 -mr-10 px-18 m-5 mt-10 ' : 'lg:ml-7' "  >
+  <ul class="grid grid-flow-col justify-center gap-5 mt-5 lg:justify-start lg:gap-4 ">
+    <li *ngIf="currentUrl !== '/acerca'">
+      <a [routerLink]="['/acerca']" class=" px-4 py-2 text-xl font-semibold text-white rounded-md bg-gradient-to-r from-blue-400 to-purple-500 hover:from-purple-500 hover:to-blue-500 hover:scale-125 transition delay-150 duration-300 ease-in-out cursor-pointer" type="submit">Acerca de mí</a>
+    </li>
+    <li *ngIf="currentUrl !== '/proyectos'">
+      <a [routerLink]="['/proyectos']" class=" px-4 py-2  text-xl font-semibold text-white rounded-md bg-gradient-to-r from-blue-400 to-purple-500 hover:from-purple-500 hover:to-blue-500 hover:scale-125 transition delay-150 duration-300 ease-in-out cursor-pointer" type="submit">Proyectos</a>
+    </li>
+    <li *ngIf="currentUrl !== '/estudios' && currentUrl !== '/estudios/certificaciones' ">
+      <a [routerLink]="['/estudios']" class=" px-4 py-2  text-xl font-semibold text-white rounded-md bg-gradient-to-r from-blue-400 to-purple-500 hover:from-purple-500 hover:to-blue-500 hover:scale-125 transition delay-150 duration-300 ease-in-out cursor-pointer" type="submit">Estudios</a>
+    </li>
+  </ul>
+</nav>

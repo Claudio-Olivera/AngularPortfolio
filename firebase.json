@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Claudio-Olivera-Portfolio",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

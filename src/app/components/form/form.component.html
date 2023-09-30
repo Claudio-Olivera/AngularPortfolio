@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSave()">
+  <label *ngIf="isCertification()">Nombre del certificado:
+    <input formControlName="certificado" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 "/>
+  </label>
+
+  <label *ngIf="isAccreditedStudy()">Estudio:
+    <input formControlName="estudio" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950  "/>
+  </label>
+
+  <label *ngIf="isProject()">Nombre del proyecto:
+    <input formControlName="nombre" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 "/>
+  </label>
+
+  <label *ngIf="isProject()">Descripción del proyecto:
+    <textarea formControlName="descripcion" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 "></textarea>
+  </label>
+
+  <label *ngIf="isProject()">Imagen del proyecto:
+    <input formControlName="imagen" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 "/>
+  </label>
+
+  <label *ngIf="isProject()">Link del proyecto:
+    <input formControlName="link" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950 "/>
+  </label>
+
+  <label *ngIf="isAccreditedStudy() || isCertification() ">Link de la imagen:
+    <input formControlName="imagen" required class="mt-1 mb-2 p-2 block w-full rounded-md outline-none focus:bg-gray-400 focus:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-950  "/>
+  </label>
+
+
+  <div *ngIf="showButtons" class="flex justify-between">
+    <button type="button" (click)="(onClose())"
+      class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-red-500 hover:bg-red-700">
+      <i class="fas fa-times text-2xl text-gray-100" title="Cancelar"></i>
+    </button>
+    <button type="submit" [disabled]="formGroup.invalid"
+      class="py-2 px-4 font-semibold rounded-lg shadow-md text-gray-100 bg-green-500 hover:bg-green-700 cursor-pointer">
+      <i class="fas fa-save text-2xl" title="Guardar"></i>
+    </button>
+  </div>
+
+  </form>

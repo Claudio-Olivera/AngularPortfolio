@@ -1,0 +1,46 @@
+<nav class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white dark:bg-zinc-950 dark:text-gray-100 flex flex-wrap items-center justify-between relative md:w-64  z-10 py-4 px-6">
+  <div class="p-6">
+    <app-dark-mode-button></app-dark-mode-button>
+  </div>
+  <div class="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
+    <button class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent" type="button" (click)="toggleCollapseShow('bg-white m-2 py-3 px-6')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span class="hidden sm:block font-bold">Admin Panel</span>
+    <span class="block sm:hidden">Admin Panel</span>
+    <div class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded" [ngClass]="collapseShow">
+      <div class="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
+        <div class="flex flex-wrap">
+          <div class="w-6/12 flex justify-end">
+            <button type="button" class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent" (click)="toggleCollapseShow('hidden')">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <h6 class="md:min-w-full mt-10 text-blueGray-500 text-xs font-bold block pt-1 pb-4 no-underline">
+        <button class="text-2xl" (click)="signOut()"><i class="fa-solid fa-arrow-right-from-bracket text-red-500 text-2xl"></i> Cerrar Sesión</button>
+      </h6>
+      <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        <li class="items-center ">
+          <a [routerLink]="['admin-accredited-studies']" class="text-md uppercase py-3 font-bold block dark:text-white" routerLinkActive #Accredited="routerLinkActive" [ngClass]="Accredited.isActive ? ' text-blue-500  hover:text-blue-700 dark:hover:text-blue-300 dark:text-blue-300' : 'text-black  hover:text-blue-500 dark:hover:text-blue-400'">
+            <i class="fa-solid fa-user-graduate" [ngClass]="Accredited.isActive ? ' dark:text-blue-300':''"></i> Accredited Studies
+          </a>
+        </li>
+        <li class="items-center">
+          <a [routerLink]="['admin-certifications']" class="text-md uppercase py-3 font-bold block dark:text-white" routerLinkActive #Certifications="routerLinkActive"  [ngClass]="Certifications.isActive ?  ' text-blue-500  hover:text-blue-700 dark:hover:text-blue-300 dark:text-blue-300' : 'text-black  hover:text-blue-500 dark:hover:text-blue-400'">
+            <i class="fa-solid fa-graduation-cap" [ngClass]="Certifications.isActive ? ' dark:text-blue-300':'' "></i> Certifications
+          </a>
+        </li>
+        <li class="items-center">
+          <a [routerLink]="['admin-projects']" class="text-md uppercase py-3 font-bold block dark:text-white" routerLinkActive #Projects="routerLinkActive" [ngClass]="Projects.isActive ? 'text-blue-500  hover:text-blue-700 dark:hover:text-blue-300 dark:text-blue-300' : 'text-black  hover:text-blue-500 dark:hover:text-blue-400'">
+            <i class="fa-regular fa-folder-open" [ngClass]="Projects.isActive ? ' dark:text-blue-300':'' "></i> Projects
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="md:ml-64">
+  <router-outlet></router-outlet>
+</div>
